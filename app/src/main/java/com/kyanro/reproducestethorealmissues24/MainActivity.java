@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Realm realm = Realm.getInstance(new Builder()
+                .name("short_cache.realm")
                 .schemaVersion(1)
                 .deleteRealmIfMigrationNeeded()
                 .build());
@@ -47,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 User age = realm.where(User.class).equalTo("age", 36).findFirst();
 
                 if (age != null) {
-                    Log.d("reproduce", "default.realm is created");
+                    Log.d("reproduce", "short_cache.realm is created");
                 } else {
-                    Log.d("reproduce", "default.realm is not created");
+                    Log.d("reproduce", "short_cache.realm is not created");
                 }
             }
         });
